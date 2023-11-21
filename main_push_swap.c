@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:12:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/21 13:05:06 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:23:03 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,33 @@ int av_to_init(t_list *key_list, int ac, char **av)
 
 int	init_data(t_list *key_list)
 {
-	key_list->stack_a = malloc(sizeof(int) * key_list -> ac_list);
-
+	/*space for stack_a*/
+	key_list->stack_a = malloc(sizeof(int) * key_list->ac_list);
+	if(!key_list->stack_a)
+	{
+		free(key_list);
+		return(-1);
+	}
+	/*space for stack_size */
+	key_list->stack_size = malloc(sizeof(int) * key_list->ac_list);
+	if(!key_list->stack_size)
+	{
+		free(key_list->stack_a);
+		free(key_list);
+		return(-1);
+	}
+	/*space for stack_b */
+	key_list->stack_b = malloc(sizeof(int) * key_list->ac_list);
+	if(!key_list->stack_b)
+	{
+		free(key_list->stack_b);
+		free(key_list->stack_a);
+		free(key_list);
+		return(-1);
+	}
+	key_list->size_a = key_list->ac_list;
+	key_list->size_b = 0;
+	/*not sure what is this for*/
+	key_list->stack_index = key_list->ac_list;
+	return(0);
 }
