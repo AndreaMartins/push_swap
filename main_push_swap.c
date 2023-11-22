@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:12:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/21 14:23:03 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:23:04 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,34 @@ int	main(int ac, char **av)
 	key_list = malloc(sizeof(t_list));
 	if (!key_list)
 		return (0);
-	/*check if the arguments are correct*/
+	/*1st function-check if the arguments are correct*/
 	if (check_av(av, ac -1) == -1)
 		ft_free(key_list);
 	key_list->counter = ac - 1;
 	key_list->error = 0;
-	/*init values*/
-	if (init_values(key_list) == -1)
+	/*2nd function-init values*/
+	if (init_stacks(key_list) == -1)
 		ft_free(key_list);
-	/*convert av to int*/
+	/*3rd function-convert av to int*/
 	if (av_to_int(key_list, ac, av) == -1)
 	{
 		ft_free(key_list);
 		return (0);
 	}
-	/*check order*/
+	/*4rd function-check order*/
 	if (check_order(key_list) == -1)
-		ft_complexfree(key_list);
-	/*select size*/
+		ft_freenull(key_list);
+	/*5th function-select size*/
 	if (ft_size_selector(ac, key_list) == -1)
 		ft_free(key_list);
-	ft_complexfree(key_list);
+	ft_freenull(key_list);
 	return (0);
 }
 
+/*5th function implementedn*/
 int	ft_size_selector(int ac, t_list *key_list)
 {
-	/*check there aren't repetitive numbers*/
+	/*6th function -check there aren't repetitive numbers*/
 	if (check_repeated_nums(key_list) == -1)
 		return(-1);
 	else
@@ -63,6 +64,7 @@ int	ft_size_selector(int ac, t_list *key_list)
 	return(0);
 }	
 
+/*3rd-function implemented*/
 int av_to_init(t_list *key_list, int ac, char **av)
 {
 	int i;
@@ -70,8 +72,10 @@ int av_to_init(t_list *key_list, int ac, char **av)
 	i = 0;
 	while (i != ac - 1)
 	{
+		/*7th function*/
 		if(check_is_num(av[i + 1] == -1))
 			return (-1);
+		/*8th fuction*/
 		key_list->stack_a[i] = ft_atoi(av[i+1], key_list);
 		if (key_list ->atoierror == 1)
 			return(-1);
@@ -81,8 +85,8 @@ int av_to_init(t_list *key_list, int ac, char **av)
 	return(0);
 }
 
-
-int	init_data(t_list *key_list)
+/*2nd-function implemented*/
+int	init_stacks(t_list *key_list)
 {
 	/*space for stack_a*/
 	key_list->stack_a = malloc(sizeof(int) * key_list->ac_list);
