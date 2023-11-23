@@ -6,9 +6,11 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:12:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/22 14:23:04 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:20:34 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "pushswap.h"
 
 int	main(int ac, char **av)
 {
@@ -23,13 +25,13 @@ int	main(int ac, char **av)
 	/*1st function-check if the arguments are correct*/
 	if (check_av(av, ac -1) == -1)
 		ft_free(key_list);
-	key_list->counter = ac - 1;
+	key_list->ac_list = ac - 1;
 	key_list->error = 0;
 	/*2nd function-init values*/
 	if (init_stacks(key_list) == -1)
 		ft_free(key_list);
 	/*3rd function-convert av to int*/
-	if (av_to_int(key_list, ac, av) == -1)
+	if (av_to_init(key_list, ac, av) == -1)
 	{
 		ft_free(key_list);
 		return (0);
@@ -53,12 +55,12 @@ int	ft_size_selector(int ac, t_list *key_list)
 	else
 	{
 		if(ac == 3 || ac == 4)
-			size_small(key_list);
-		if(ac < 7 &&  ac < 4)
-			size_medium(key_list);
+			size_small(key_list->stack_a, key_list);
+		if(ac < 7 &&  ac > 4)
+			size_medium(key_list->stack_a, key_list);
 		if(ac < 102 && ac > 6)
 			size_big(key_list);
-		if(c > 101)
+		if(ac > 101)
 			size_extra(key_list);
 	}
 	return(0);
@@ -73,7 +75,7 @@ int av_to_init(t_list *key_list, int ac, char **av)
 	while (i != ac - 1)
 	{
 		/*7th function*/
-		if(check_is_num(av[i + 1] == -1))
+		if(check_is_num(av[i + 1]) == -1)
 			return (-1);
 		/*8th fuction*/
 		key_list->stack_a[i] = ft_atoi(av[i+1], key_list);
@@ -96,8 +98,8 @@ int	init_stacks(t_list *key_list)
 		return(-1);
 	}
 	/*space for stack_size */
-	key_list->stack_size = malloc(sizeof(int) * key_list->ac_list);
-	if(!key_list->stack_size)
+	key_list->stack_sort = malloc(sizeof(int) * key_list->ac_list);
+	if(!key_list->stack_sort)
 	{
 		free(key_list->stack_a);
 		free(key_list);
@@ -115,6 +117,6 @@ int	init_stacks(t_list *key_list)
 	key_list->size_a = key_list->ac_list;
 	key_list->size_b = 0;
 	/*not sure what is this for*/
-	key_list->stack_index = key_list->ac_list;
+	key_list->size_ip = key_list->ac_list;
 	return(0);
 }
