@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/23 17:13:09 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:16:02 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSHSWAP_H
 
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 
@@ -61,5 +62,6 @@ void	size_small(int *stack, t_list *key_list);
 void	size_medium(int *stack, t_list *key_list);
 void	size_big(t_list *key_list);
 void	size_extra(t_list *key_list);
+void	print_stack(int *stack, int size);
 
 #endif

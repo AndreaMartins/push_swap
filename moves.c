@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:38 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/23 17:17:45 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:21:41 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ra(t_list *key_list)
 		swap_pointer(&key_list->stack_a[i], &key_list->stack_a[i+1]);
 		i++;
 	}
+	write(1,"ra\n",3);
 }
 
 void	rra(t_list *key_list)
@@ -53,4 +54,5 @@ void	rra(t_list *key_list)
 		swap_pointer(&key_list->stack_a[i], &key_list->stack_a[i-1]);
 		i--;
 	}
+	write(1,"rra\n",4);
 }
