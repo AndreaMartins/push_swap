@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/23 18:16:02 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:58:43 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,15 @@ void	sa(int *stack);
 void swap_pointer(int *ptr1, int *ptr2);
 void	ra(t_list *key_list);
 void	rra(t_list *key_list);
+void	pb(t_list *key_list);
+void	pa(t_list *key_list);
 void	size_small(int *stack, t_list *key_list);
 void	size_medium(int *stack, t_list *key_list);
+void	size_medium_small(int *sta, t_list *key_list);
+int	size_medium_continue(int *sta, t_list *key_list, int i);
 void	size_big(t_list *key_list);
 void	size_extra(t_list *key_list);
 void	print_stack(int *stack, int size);
+
 
 #endif
