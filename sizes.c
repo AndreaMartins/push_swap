@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:53:39 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/27 12:05:42 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:19:27 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	size_medium(int *st, t_list *key_list)
 		if(st[0] > st[1])
 			sa(key_list->stack_a);
 		printf("\n=====stack after medium swap=====\n");
+		print_stack(key_list->stack_a, key_list->size_a);
 	}
 }
 
