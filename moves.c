@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:38 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/27 10:24:37 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:51:54 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	pb(t_list *key_list)
 
 	i = key_list->size_b;
 	key_list->size_b = key_list->size_b + 1;
-	key_list->size_a = key_list->size_a -1;
+	key_list->size_a = key_list->size_a - 1;
 	while (i > 0)
 	{
 		swap_pointer(&key_list->stack_b[i], &key_list->stack_b[i-1]);
@@ -83,8 +83,8 @@ void pa(t_list *key_list)
 {
 	int	i;
 
-	i = key_list ->size_a;
-	key_list->size_b = key_list->size_b -1;
+	i = key_list->size_a;
+	key_list->size_b = key_list->size_b - 1;
 	key_list->size_a = key_list->size_a + 1;
 	while(i > 0)
 	{
@@ -100,3 +100,5 @@ void pa(t_list *key_list)
 	}
 	write(1, "pa\n", 3);
 }
+
+

@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:09:52 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/23 12:32:12 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:23:11 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,25 @@ int	check_av(char **av, int ac)
 
 int	check_is_num(char *s)
 {
-	int	count;
+	//int	count;
 	int	i;
 	
-	count = 0;
+//	count = 0;
 	i = 0;
-	if((s[i] == '-' && (s[i+1] >= '0' && s[i+1] <='0')) || (s[i] >='0' && s[i] <= '9'))
+	if((s[i] == '-' || s[i] == '+'))
+		i++;
+	if(s[i] >='0' && s[i] <= '9')
 	{
-		count++;
+		//count++;
 		i++;
 		while (s[i])
 		{
 			if(s[i]>= '0' && s[i] <= '9')
-				count++;
+				//count++;
 				i++;
 		}
+		if (atoi(s)	< INT_MIN || atoi(s) > INT_MAX)
+			return (-1);
 	}
 	if (i == ft_strlen(s))
 		return(0);
@@ -99,7 +103,7 @@ int	check_rep(t_list *key_list, int	num, int x)
 	i = 0;
 	while(i<x)
 	{
-		if (key_list ->stack_a[i] == num)
+		if (key_list->stack_a[i] == num)
 			return(0);
 		i++;
 	}
