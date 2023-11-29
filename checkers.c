@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:09:52 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/28 16:23:11 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:38:43 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_is_num(char *s)
 				//count++;
 				i++;
 		}
-		if (atoi(s)	< INT_MIN || atoi(s) > INT_MAX)
+		if (ft_atoi(s)	< INT_MIN || ft_atoi(s) > INT_MAX)
 			return (-1);
 	}
 	if (i == ft_strlen(s))
@@ -84,9 +84,9 @@ int	check_repeated_nums(t_list *key_list)
 	int 	i;
 	i = 0;
 
-	while( i<= key_list-> size_a -1)
+	while( i < key_list->ac_list)
 	{
-		if(check_rep(key_list, key_list ->stack_a[i], i) == 1)
+		if(check_rep(key_list, key_list->stack_a[i], i) == 1)
 				i++;
 		else
 			return(-1);

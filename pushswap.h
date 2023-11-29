@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/28 16:56:50 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:59:35 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_list
 {
 	int	*stack_a; 
 	int	*stack_b;
-	/*int	*stack_sort; //array for sorting purposes*/
+	int	*stack_sort; //array for sorting purposes
 	int	size_a;//size stack a
 	int	size_b;//size stack b
 	/*int size_ip;//stack index position(related to position in the stack)*/
@@ -52,10 +52,10 @@ int	check_rep(t_list *key_list, int	num, int x);
 int	ft_strlen(char *s);
 void	ft_free(t_list *key_list);
 void	ft_freenull(t_list *key_list);
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	ft_error(void);
 void	sa(int *stack);
-void swap_pointer(int *ptr1, int *ptr2);
+void	swap_pointer(int *ptr1, int *ptr2);
 void	ra(t_list *key_list);
 void	rra(t_list *key_list);
 void	pb(t_list *key_list);
@@ -63,9 +63,10 @@ void	pa(t_list *key_list);
 void	size_small(int *stack, t_list *key_list);
 void	size_medium(int *stack, t_list *key_list);
 void	size_medium_small(int *sta, t_list *key_list);
-int	size_medium_continue(int *sta, t_list *key_list, int i);
+int		size_medium_continue(int *sta, t_list *key_list, int i);
 void	size_big(t_list *key_list);
 void	size_extra(t_list *key_list);
 void	print_stack(int *stack, int size);
+void	assign_index(int *stack, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:53:39 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/28 17:06:51 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:15:26 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,9 @@ int	 size_medium_continue(int *st, t_list *key_list, int i)
 
 void	size_big(t_list *key_list)
 {
-	ra(key_list);
+	assign_index(key_list->stack_sort, key_list->ac_list);
+	printf("\nsorted list\n");
+	print_stack(key_list->stack_sort, key_list->ac_list);
 }
 
 void	size_extra(t_list *key_list)

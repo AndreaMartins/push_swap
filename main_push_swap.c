@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:12:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/28 17:19:40 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:41:00 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_list	*key_list;
-	/*nothing to swap nothing provided*/
+	/*nothing to swap nothing providedi or just one element*/
 	if (ac == 1 || ac == 2)
 		return (0);
 	/*make space for the list*/
@@ -27,19 +27,12 @@ int	main(int ac, char **av)
 	{
 		printf("hi-> %d\n", check_av(av, ac -1));
 		ft_error();
-		/*ft_free(key_list);*/
-	}
-	/*check repeated numbers */
-	/*6th function -check there aren't repetitive numbers*/
-	if (check_repeated_nums(key_list) == -1)
-	{
-		ft_error();
-		return(0);
 		ft_free(key_list);
+		return(0);
 	}
 	key_list->ac_list = ac - 1;
 	key_list->error = 0;
-	/*2nd function-init values*/
+	/*2nd function-init values and stacks*/
 	if (init_stacks(key_list) == -1)
 		ft_free(key_list);
 	/*3rd function-convert av to int*/
@@ -47,6 +40,13 @@ int	main(int ac, char **av)
 	{
 		ft_free(key_list);
 		return (0);
+	}
+	/*check repeated numbers */
+	if (check_repeated_nums(key_list) == -1)
+	{
+		ft_error();
+		ft_free(key_list);
+		return(0);
 	}
 	/*4rd function-check order*/
 	if (check_order(key_list) == -1)
@@ -86,8 +86,8 @@ int av_to_init(t_list *key_list, int ac, char **av)
 		/*8th fuction*/
 		key_list->stack_a[i] = ft_atoi(av[i+1]);
 		/*if (key_list ->atoierror == 1)
-			return(-1);
-		key_list->stack_sort[i] = ft_atoi(av[i +1], key_list);*/
+			return(-1);*/
+		key_list->stack_sort[i] = ft_atoi(av[i +1]);
 		i++;
 	}
 	return(0);
@@ -103,14 +103,14 @@ int	init_stacks(t_list *key_list)
 		free(key_list);
 		return(-1);
 	}
-	/*space for stack_size */
-	/*key_list->stack_sort = malloc(sizeof(int) * key_list->ac_list);
+	/*space for stack_sort */
+	key_list->stack_sort = malloc(sizeof(int) * key_list->ac_list);
 	if(!key_list->stack_sort)
 	{
 		free(key_list->stack_a);
 		free(key_list);
 		return(-1);
-	}*/
+	}
 	/*space for stack_b */
 	key_list->stack_b = malloc(sizeof(int) * key_list->ac_list);
 	if(!key_list->stack_b)
