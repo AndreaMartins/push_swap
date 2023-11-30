@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:12:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/29 17:41:00 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/30 10:38:32 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,13 @@ int	ft_size_selector(int ac, t_list *key_list)
 			size_small(key_list->stack_a, key_list);
 		if(ac < 7 &&  ac > 4)
 			size_medium(key_list->stack_a, key_list);
-		if(ac < 102 && ac > 6)
+		if(ac > 6)
+			assign_index(key_list);
+		if(ac > 6 && ac < 22 )
+			size_medium_big(key_list);
+		if(ac < 152 && ac > 21)
 			size_big(key_list);
-		if(ac > 101)
+		if(ac > 151)
 			size_extra(key_list);
 	return(0);
 }	

@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:05:01 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/29 17:47:21 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/30 10:55:42 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,65 +111,29 @@ void	ft_error()
 	printf("\n Error");
 }
 
-void assign_index(int *stack, int size)
+
+void assign_index(t_list *key_list)
 {
-	int	index;
-	int i;
-	int max_value;
-	int max_index;
-	int j; 
+	int	i;
+	int	j;
+	int	new_index;
 
-	index = 0;
+	i = -1;
+	while (i++ < key_list->ac_list)
+		key_list->stack_sort[i] = key_list->stack_a[i];
 	i = 0;
-	max_value = INT_MIN;
-	max_index = -1;
-	j = 0;
-
-	while (i < size)
+	while (i < key_list->ac_list)
 	{
-		while(j < size)
+		new_index = 1;
+		j = 0;
+		while (j < key_list->ac_list)
 		{
-			if(stack[j] == INT_MIN && j == 0)
-				j++;
-			if(stack[j] > max_value && max_index == -1)
-			{
-				max_value = stack[j];
-				max_index = j;
-			}
+			if (i != j && key_list->stack_sort[i] > key_list->stack_sort[j])
+				new_index++;
 			j++;
 		}
-
-		if(max_index != -1)
-		{
-			stack[max_index] = index;
-			index++;
-		}
+		key_list->stack_a[i] = new_index;
 		i++;
 	}
 }
 
-/*void assign_index(int *stack, int size)
-{
-    int index = 0;
-    int i = 0;
-
-    // Handle the first element separately
-    if (stack[0] != INT_MIN)
-    {
-        stack[0] = index;
-        index++;
-    }
-
-    // Iterate over the rest of the elements using a while loop
-    i = 1;
-    while (i < size)
-    {
-        if (stack[i] != INT_MIN)
-        {
-            stack[i] = index;
-            index++;
-        }
-        i++;
-    }
-}
-*/

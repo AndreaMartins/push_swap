@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/29 16:59:35 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/30 13:50:54 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_list
 	/*int control;//control variable*/
 	/*int cont;//control variable count or cantainer*/ 
 	int error;
+	int	msolve;
 	/*int atoierror;*/
 	/*int jatoi;//variable for atoi*/
 	/*int size_block; //size of block used in algorithm*/
@@ -57,16 +58,22 @@ void	ft_error(void);
 void	sa(int *stack);
 void	swap_pointer(int *ptr1, int *ptr2);
 void	ra(t_list *key_list);
+void	rb(t_list *key_list);
+void	rr(t_list *key_list);
 void	rra(t_list *key_list);
+void	rrb(t_list *key_list);
+void	rrr(t_list *key_list);
 void	pb(t_list *key_list);
 void	pa(t_list *key_list);
 void	size_small(int *stack, t_list *key_list);
 void	size_medium(int *stack, t_list *key_list);
 void	size_medium_small(int *sta, t_list *key_list);
 int		size_medium_continue(int *sta, t_list *key_list, int i);
+void	size_medium_big(t_list *key_list);
 void	size_big(t_list *key_list);
 void	size_extra(t_list *key_list);
 void	print_stack(int *stack, int size);
-void	assign_index(int *stack, int size);
+void	assign_index(t_list *key_list);
+void	split_chunks(t_list *key_list, int num);
 
 #endif

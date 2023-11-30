@@ -6,14 +6,14 @@
 #    By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 09:51:33 by andmart2          #+#    #+#              #
-#    Updated: 2023/11/28 16:33:58 by andmart2         ###   ########.fr        #
+#    Updated: 2023/11/30 11:37:04 by andmart2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap
 CC = cc
 FLAGS = -Wall -Wextra -Werror -MMD -I ./
 
-SRC = auxiliars.c checkers.c main_push_swap.c sizes.c moves.c
+SRC = auxiliars.c checkers.c main_push_swap.c sizes.c moves.c split_chunks.c
 
 OBJ = $(SRC:.c=.o)
 DEPS = $(SRC:.c=.d)

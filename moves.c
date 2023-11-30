@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:38 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/28 12:51:54 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:32:45 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,58 @@ void	ra(t_list *key_list)
 	write(1,"ra\n",3);
 }
 
+void	rb(t_list *key_list)
+{
+	int i;
+
+	i = 0;
+	while(i + 1 < key_list->size_b)
+	{
+		swap_pointer(&key_list->stack_b[i], &key_list->stack_b[i+1]);
+		i++;
+	}
+	write(1,"rb\n",3);
+}
+
+void	rr(t_list *key_list)
+{
+	ra(key_list);
+	rb(key_list);
+	write(1, "rr\n", 3);
+}
+
+
 void	rra(t_list *key_list)
 {
 	int i;
 
-	i = key_list -> size_a - 1;
+	i = key_list->size_a - 1;
 	while (i > 0)
 	{
 		swap_pointer(&key_list->stack_a[i], &key_list->stack_a[i-1]);
 		i--;
 	}
 	write(1,"rra\n",4);
+}
+
+void	rrb(t_list *key_list)
+{
+	int	i;
+
+	i = key_list->size_b - 1;
+	while (i > 0)
+	{
+		swap_pointer(&key_list->stack_b[i], &key_list->stack_b[i-1]);
+		i--;
+	}
+	write(1, "rrb\n", 4);
+}	
+
+void	rrr(t_list *key_list)
+{
+	rra(key_list);
+	rrb(key_list);
+	write(1,"rrr\n",4);
 }
 
 void	pb(t_list *key_list)
@@ -79,7 +120,7 @@ void	pb(t_list *key_list)
 	write(1, "pb\n", 3);
 }
 
-void pa(t_list *key_list)
+void	 pa(t_list *key_list)
 {
 	int	i;
 
