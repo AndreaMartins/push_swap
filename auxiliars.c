@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:05:01 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/30 10:55:42 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:22:23 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,18 @@ void assign_index(t_list *key_list)
 		key_list->stack_a[i] = new_index;
 		i++;
 	}
+ 	printf("\nafter index\n");
+	print_stack(key_list->stack_a, key_list->ac_list);
+	print_stack(key_list->stack_sort, key_list->ac_list);
 }
 
+void	print_stack(int *stack, int size)
+{
+	int i = 0;
+	while(i < size)
+	{
+		printf("\n%d",stack[i]);
+		i++;
+	}
+	printf("\n");
+}

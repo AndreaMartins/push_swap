@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/01 14:38:09 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:58:39 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	print_stack(int *stack, int size);
 void	assign_index(t_list *key_list);
 void	split_chunks(t_list *key_list, int num);
 void	solve(t_list *key_list);
-int	aux_rr(t_list *key_list, int aux_exit, int i);
-int	aux_rrr(t_list *key_list, int aux_exit,int i);
+//static	int	aux_r(t_list *key_list, int aux_exit, int i);
+//static	int	aux_rr(t_list *key_list, int aux_exit,int i);
 
 #endif

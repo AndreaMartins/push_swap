@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:53:39 by andmart2          #+#    #+#             */
-/*   Updated: 2023/11/30 12:29:27 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:39:02 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,6 @@ void	size_small(int *stack, t_list *key_list)
 	printf("\n=====stack after small swap=====\n");
 	print_stack(key_list->stack_a, key_list->size_a);
 }
-
-void	print_stack(int *stack, int size)
-{
-	int i = 0;
-	while(i < size)
-	{
-		printf("\n%d",stack[i]);
-		i++;
-	}
-	printf("\n");
-}
-
-
 
 void	size_medium_small(int *sta, t_list *key_list)
 {
@@ -161,19 +148,26 @@ int	 size_medium_continue(int *st, t_list *key_list, int i)
 void	size_medium_big(t_list *key_list)
 {
 	split_chunks(key_list, 2);
-	//solve(key_list);
+	solve(key_list);
+	printf("\nsorted list\n");
+	print_stack(key_list->stack_a, key_list->ac_list);	
+	print_stack(key_list->stack_sort, key_list->ac_list);
 }
 void	size_big(t_list *key_list)
 {	
 	split_chunks(key_list, 4);
-	//solve(key_list);
+	solve(key_list);
 	printf("\nsorted list\n");
-	print_stack(key_list->stack_a, key_list->ac_list);
+	print_stack(key_list->stack_a, key_list->ac_list);	
+	print_stack(key_list->stack_sort, key_list->ac_list);
 }
 
 void	size_extra(t_list *key_list)
 {
 	split_chunks(key_list, 9);
-	//solve(key_list);
+	solve(key_list);	
+	printf("\nsorted list\n");
+	print_stack(key_list->stack_a, key_list->ac_list);
+	print_stack(key_list->stack_sort, key_list->ac_list);
 }
 
