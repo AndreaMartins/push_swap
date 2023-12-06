@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:05:01 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/05 14:53:24 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:11:43 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,24 @@ long	ft_atoi(const char *str, t_list *key_list)
 
 	nbr = 0;
 	i = 0;
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
+	sign = 0;
+	key_list->atoierror = 0;
+	if (str[i] == '-')
+		sign = 1;
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (str[i] == '0' && nbr == 0)
-			i++;
-		nbr = nbr * 10 + str[i] - '0';
+		nbr = (nbr * 10) + (str[i] - '0');
 		i++;
-		if (nbr > ((long long int)INT_MAX + 1) && sign == -1)
+		if (nbr > ((long long int)INT_MAX + 1) && sign == 1)
 			key_list->atoierror = 1;
-		if (nbr > INT_MAX && sign == 1)
+		if (nbr > INT_MAX && sign == 0)
 			key_list->atoierror = 1;
 	}
-	return (nbr * sign);
+	if (sign == 1)
+		return (-nbr);
+	return (nbr);
 }
 
 void	ft_error(void)

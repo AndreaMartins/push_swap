@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:09:52 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/05 14:56:29 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:16:40 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,30 @@ int	check_is_num(char *s)
 {
 	int	i;
 
+	if (s[0] == '\0')
+		return (-1);
 	i = 0;
-	if ((s[i] == '-' || s[i] == '+'))
+	if ((s[0] == '-' || s[0] == '+') && s[1])
+		i = 1;
+	while (s[i] && (s[i] >= '0' && s[i] <= '9'))
 		i++;
-	if (s[i] >= '0' && s[i] <= '9')
-	{
-		i++;
-		while (s[i])
-		{
-			if (s[i] >= '0' && s[i] <= '9')
-				i++;
-		}	
-	}
-	if (i == ft_strlen(s))
-		return (0);
-	return (-1);
+	if (s[i] && (s[i] < '0' || s[i] > '9'))
+		return (-1);
+	return (0);
 }
 
 int	check_order(t_list *key_list)
 {
-	int	count;
 	int	i;
 
-	count = 0;
 	i = 0;
-	while (i < key_list->ac_list - 1)
+	while (i < key_list->ac_list -1)
 	{
-		if (key_list->stack_a[i] < key_list->stack_a[i + 1])
-			count++;
+		if (key_list->stack_a[i] > key_list->stack_a[i + 1])
+			return (0);
 		i++;
 	}
-	if (count == i)
-		return (-1);
-	else
-		return (0);
+	return (-1);
 }
 
 int	check_repeated_nums(t_list *key_list)

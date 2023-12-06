@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/05 14:53:18 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:22:58 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ typedef struct s_list
 	int	ac_list;
 	int	error;
 	int	msolve;
-	int atoierror;
+	int	atoierror;
 }	t_list;
 
 int		main(int ac, char **av);
 int		initialize_program(t_list *key_list, int ac, char **av);
 int		ft_size_selector(int ac, t_list *key_list);
 int		av_to_init(t_list *key_list, int ac, char **av);
-int		init_stacks(t_list *key_list);
+int		init_stacks(int ac, t_list *key_list);
+int		check_args(t_list *key_list);
 int		check_av(char **av, int ac);
 int		check_is_num(char *s);
 int		check_order(t_list *key_list);

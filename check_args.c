@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sizes_big.c                                        :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 12:28:47 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/06 14:21:55 by andmart2         ###   ########.fr       */
+/*   Created: 2023/12/06 10:29:39 by andmart2          #+#    #+#             */
+/*   Updated: 2023/12/06 14:13:10 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	size_medium_big(t_list *key_list)
+int	check_args(t_list *key_list)
 {
-	split_chunks(key_list, 2);
-	solve(key_list);
-}
-
-void	size_big(t_list *key_list)
-{
-	split_chunks(key_list, 4);
-	solve(key_list);
-}
-
-void	size_extra(t_list *key_list)
-{
-	split_chunks(key_list, 9);
-	solve(key_list);
+	if (check_repeated_nums(key_list) == -1)
+	{
+		return (-1);
+	}
+	if (check_order(key_list) == -1)
+	{
+		return (-1);
+	}
+	return (0);
 }
