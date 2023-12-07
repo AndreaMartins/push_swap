@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:12:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/06 14:18:26 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/07 11:30:55 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int ac, char **av)
 	}
 	if (check_args(key_list) == -1)
 	{
-		ft_error();
 		ft_free(key_list);
 		return (0);
 	}

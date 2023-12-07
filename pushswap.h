@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:31 by andmart2          #+#    #+#             */
-/*   Updated: 2023/12/06 14:22:58 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:40:48 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		ft_size_selector(int ac, t_list *key_list);
 int		av_to_init(t_list *key_list, int ac, char **av);
 int		init_stacks(int ac, t_list *key_list);
 int		check_args(t_list *key_list);
+int		one_number(t_list *key_list);
 int		check_av(char **av, int ac);
 int		check_is_num(char *s);
 int		check_order(t_list *key_list);
